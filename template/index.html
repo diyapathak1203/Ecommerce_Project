@@ -36,7 +36,7 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <a href="/signup/">Sign in</a>
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -74,17 +74,17 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/signup/">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
+                            {% if user.is_authenticated %}
                             <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <span>{{request.user}}<i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
+                                    <li><a href = "/logout/">Logout</a></li>
                                 </ul>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -138,6 +138,7 @@
     {% block about %}{% endblock about %}
     {% block contact %}{% endblock contact %}
     {% block shopping_cart %}{% endblock shopping_cart %}
+    {% block outlet %}{% endblock outlet %}
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
